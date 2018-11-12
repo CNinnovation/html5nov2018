@@ -1,6 +1,6 @@
-﻿"using strict";
+﻿function foo() {
+    "use strict";
 
-function foo() {
     let a = 3;
     {
         let a = 4;
