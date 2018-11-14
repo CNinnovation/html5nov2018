@@ -67,10 +67,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ArrowPage.html" />
     <Content Include="EventsPage.html" />
+    <Content Include="AsyncPage.html" />
+    <Content Include="PromisePage.html" />
     <Content Include="SamplePage.html" />
+    <Content Include="scripts\Arrow1.js" />
+    <Content Include="scripts\Async1.js" />
     <Content Include="scripts\EventsSample.js" />
     <Content Include="scripts\Hello.js" />
+    <Content Include="scripts\Promise1.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
