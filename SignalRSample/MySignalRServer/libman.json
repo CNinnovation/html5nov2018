@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "@aspnet/signalr",
+      "destination": "wwwroot/lib/signalr",
+      "files": [ ]
+    }
+  ]
+}
