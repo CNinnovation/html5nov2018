@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+  <script>
+    var internalDNDType = 'text/x-fruits';
+
+    function dragStartHandler(event) {
+      if (event.target instanceof HTMLLIElement) {
+        // use the element's data-value="" attribute as the value to be moving:
+        var v = event.target.dataset.value;
+        event.dataTransfer.setData(internalDNDType, v);
+        event.dataTransfer.effectAllowed = 'move'; // only allow moves
+      } else {
+        event.preventDefault(); // don't allow selection to be dragged
+      }
+    }
+
+
+    function dropHandler(event) {
+      var li = document.createElement('li');
+      var data = event.dataTransfer.getData(internalDNDType);
+      if (data == 'fruit-apple') {
+        li.textContent = 'Apples';
+      } else if (data == 'fruit-orange') {
+        li.textContent = 'Oranges';
+      } else if (data == 'fruit-pear') {
+        li.textContent = 'Pears';
+      } else {
+        li.textContent = 'Unknown Fruit';
+      }
+      event.target.appendChild(li);
+    }
+
+  </script>
+</head>
+<body>
+
+  <ol ondragstart="dragStartHandler(event)">
+    <li draggable="true" data-value="fruit-apple">Apples</li>
+    <li draggable="true" data-value="fruit-orange">Oranges</li>
+    <li draggable="true" data-value="fruit-pear">Pears</li>
+  </ol>
+
+  <p>Drop your favorite fruits below:</p>
+  <ol dropzone="move s:text/x-fruits" ondrop="dropHandler(event)"></ol>
+</body>
+</html>

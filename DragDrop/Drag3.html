@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="Styles.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-2.1.0.js"></script>
+    <script>
+        var draggedItem;
+
+        $(function () {
+            $(".item").on("dragstart", function (e) {
+                $(e.target).addClass("dragging");
+                draggedItem = $(e.target);
+                log("dragstart");
+            });
+
+            $(".item").on("dragend", function (e) {
+                $(e.target).removeClass("dragging");
+                log("dragend");
+            });
+
+            $(".drop2").on("dragenter", function (e) {
+                e.preventDefault();
+                log("dragenter");
+            });
+
+            $(".drop2").on("dragover", function (e) {
+                e.preventDefault();
+                log("dragover");
+            });
+            $(".drop").on("drop", function (e) {
+                var hole = $(e.target);
+                if (hole.hasClass("drop") && hole.children().length == 0) {
+                    draggedItem.detach();
+                    draggedItem.appendTo(e.target);
+                }
+            });
+
+            //var dropinfo = $("#dropinfo").get(0);
+
+            //dropinfo.ondrop = function (ev) {
+            //    this.innerHTML += "<p>" + ev.dataTransfer.getData("Text") + "</p>";
+            //};
+
+           // $.event.props.push("dataTransfer");
+
+            $("#dropinfo").on("drop", function (ev) {
+                this.innerHTML += "<p>" + ev.dataTransfer.getData("Text") + "</p>";
+            });
+        });
+
+        function log(text) {
+            $("#output").append(text + "<br />");
+        }
+    </script>
+</head>
+<body>
+    <p>Some p text</p>
+    <div class="item" draggable="true">One</div>
+    <div draggable="false">Two</div>
+    <img class="item" src="../Images/Penguins.jpg" width="300" height="300" alt="@penguin" />
+    <img src="../Images/Penguins.jpg" width="300" height="300" alt="@penguin" draggable="false" />
+    <br />
+    <!--<div class="drop"></div>-->
+    <div id="dropinfo" class="drop2"></div>
+    <br />
+    <div id="output"></div>
+
+</body>
+</html>
