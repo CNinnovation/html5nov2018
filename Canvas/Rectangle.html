@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="../Scripts/jquery-2.1.0.js"></script>
+  <script type="text/javascript" src="../Scripts/modernizr-2.7.1.js"></script>
+  <script>
+    $(function () {
+      var canvas = document.querySelector("canvas");
+      if (!!(canvas.getContext && canvas.getContext('2d'))) {
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = "rgb(255, 0, 0)";
+        ctx.fillRect(0, 0, 100, 100);
+        ctx.strokeStyle = "#00f";
+        ctx.strokeRect(25, 25, 50, 50);
+      }
+    });
+
+  </script>
+</head>
+<body>
+  <canvas>canvas not supported</canvas>
+
+</body>
+</html>

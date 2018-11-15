@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="../Scripts/jquery-2.1.0.js"></script>
+  <script>
+
+    $(function () {
+      var img = new Image();
+      img.src = 'Matthias.jpg';
+      $(img).load(function () {
+        var canvas = $('canvas').get(0);
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, 3072, 4608, 0, 0, 300, 500);
+      });
+    });
+
+  </script>
+</head>
+<body>
+  <canvas width="600" height="400"></canvas>
+</body>
+</html>
