@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script src="../Scripts/jquery-2.1.0.js"></script>
+  <script>
+    $(function () {
+      $(window).on("message", function (ev) {
+        $("#div1").html(ev.originalEvent.data);
+        $("#div2").html("message received");
+      });
+    });
+</script>
+  <title></title>
+</head>
+<body>
+  <h1>
+    Receiver</h1>
+  <div id="div1">
+  </div>
+  <div id="div2">
+  </div>
+</body>
+</html>

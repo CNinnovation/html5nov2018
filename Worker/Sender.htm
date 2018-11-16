@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script src="../Scripts/jquery-2.1.0.js"></script>
+  <script>
+    $(function () {
+      $("#button1").click(function () {
+        var text = $("#text1").val();
+        $("iframe")[0].contentWindow.postMessage(text, "*");
+      });
+    });
+</script>
+  <title></title>
+</head>
+<body>
+  <input type="text" id="text1" />
+  <button type="button" id="button1">
+    send</button>
+  <br />
+  <iframe src="Receiver.htm"></iframe>
+</body>
+</html>
